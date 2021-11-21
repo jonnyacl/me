@@ -2,12 +2,12 @@ import { ReactElement } from "react";
 import useScrollScale from "../../hooks/useScrollScale";
 import styles from "./Header.module.scss";
 function Header(): ReactElement {
-  const { scrollingDown } = useScrollScale();
+  const { isScrollingDown } = useScrollScale();
   return (
     <header className={styles.header}>
       <div
         className={
-          scrollingDown ? styles.headerContentScrolled : styles.headerContent
+          isScrollingDown ? styles.headerContentScrolled : styles.headerContent
         }
       >
         <p>Hi I'm Jonny</p>
