@@ -2,21 +2,27 @@ import { useCallback, useEffect, useState } from "react";
 
 function useScrollScale(onScroll: Function | null = null) {
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [isScrollingDown, setScrollingDown] = useState(false);
+  const [currScrollY, setCurrScrollY] = useState(0);
+  const [prevScrollY, setPrevScrollY] = useState(0);
   const listener = useCallback(
     (e) => {
-      setScrollY(e.target.scrollingElement.scrollTop);
+      if (currScrollY) {
+        setPrevScrollY(currScrollY);
+      }
+      setCurrScrollY(e.target.scrollingElement.scrollTop);
       setHasScrolled(true);
+      setScrollingDown(currScrollY > prevScrollY);
       onScroll && onScroll();
     },
-    [onScroll]
+    [onScroll, currScrollY]
   );
   useEffect(() => {
     document.addEventListener("scroll", listener);
     return () => document.removeEventListener("scroll", listener);
   }, [listener]);
 
-  return { hasScrolled, scrollY };
+  return { hasScrolled, currScrollY, isScrollingDown, prevScrollY };
 }
 
 export default useScrollScale;

@@ -1,14 +1,15 @@
 import { ReactElement } from "react";
 import useScrollScale from "../../hooks/useScrollScale";
 import styles from "./Header.module.scss";
-const scrollLimit: Number = 70;
 function Header(): ReactElement {
-  const { scrollY } = useScrollScale();
+  const { scrollingDown } = useScrollScale();
   return (
-    <header
-      className={scrollY > scrollLimit ? styles.headerScrolled : styles.header}
-    >
-      <div className={styles.headerContent}>
+    <header className={styles.header}>
+      <div
+        className={
+          scrollingDown ? styles.headerContentScrolled : styles.headerContent
+        }
+      >
         <p>Hi I'm Jonny</p>
         <a href="https://github.com/jonnyacl" rel="noreferrer" target="_blank">
           <img

@@ -6,16 +6,19 @@ import Content from "../components/content/Content";
 function Me(): ReactElement {
   return (
     <div className={styles.me}>
+      {/* <div>Hi</div> */}
       <Header />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
-      <Content />
+      <div className={styles.my}>
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+        <Content />
+      </div>
     </div>
   );
 }
