@@ -1,0 +1,36 @@
+.header {
+  text-align: center;
+  font-family: "SFMono-Medium";
+  position: sticky;
+  padding: 10px 10px 0px 10px;
+  top: 0;
+  border-bottom: 1px;
+  transition: all 0.3s ease-in-out;
+  background-color: white;
+}
+
+.headerScrolled {
+  text-align: center;
+  font-family: "SFMono-Medium";
+  position: sticky;
+  padding: 10px 10px 0px 10px;
+  top: 0;
+  border-bottom: 1px;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0.8);
+  background-color: white;
+}
+
+.headerContent {
+  a {
+    img {
+      width: 40px;
+      margin: 10px;
+      transition: all 0.17s ease-in-out;
+    }
+
+    img:hover {
+      transform: scale(1.3);
+    }
+  }
+}
