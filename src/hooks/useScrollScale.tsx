@@ -1,28 +1,33 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-function useScrollScale(onScroll: Function | null = null) {
+const useScrollScale = (onScroll?: () => void) => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const [currScrollY, setCurrScrollY] = useState(0);
-  const [prevScrollY, setPrevScrollY] = useState(0);
-  const listener = useCallback(
-    (e) => {
-      setIsScrollingDown(e.target.scrollingElement.scrollTop > currScrollY);
-      if (currScrollY) {
-        setPrevScrollY(currScrollY);
-      }
-      setCurrScrollY(e.target.scrollingElement.scrollTop);
-      setHasScrolled(true);
-      onScroll && onScroll();
-    },
-    [onScroll, currScrollY]
-  );
+  const [scroll, setScroll] = useState({ current: 0, previous: 0 });
   useEffect(() => {
-    document.addEventListener("scroll", listener);
-    return () => document.removeEventListener("scroll", listener);
-  }, [listener]);
+    const scroller = (e: Event) => {
+      if (e instanceof Event && e.target) {
+        const target = e.target as Document;
+        if (target.scrollingElement) {
+          setIsScrollingDown(
+            target.scrollingElement.scrollTop > scroll.current
+          );
+          if (scroll.current) {
+            setScroll({
+              current: target.scrollingElement.scrollTop,
+              previous: scroll.current,
+            });
+          }
+          setHasScrolled(true);
+          onScroll && onScroll();
+        }
+      }
+    };
+    document.addEventListener('scroll', scroller);
+    return () => document.removeEventListener('scroll', scroller);
+  }, [scroll, onScroll]);
 
-  return { hasScrolled, currScrollY, isScrollingDown, prevScrollY };
-}
+  return { hasScrolled, scroll, isScrollingDown };
+};
 
 export default useScrollScale;
