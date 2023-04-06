@@ -1,26 +1,11 @@
-import { ReactElement } from "react";
-import Header from "../components/header";
-import styles from "./Me.module.scss";
-import Content from "../components/content/Content";
+import { Header } from '../components/header';
 
-function Me(): ReactElement {
+export const Me = () => {
   return (
-    <div className={styles.me}>
-      {/* <div>Hi</div> */}
+    <div>
       <Header />
-      <div className={styles.my}>
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-        <Content />
-      </div>
     </div>
   );
-}
+};
 
 export default Me;
