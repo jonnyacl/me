@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "jonnylea",
     "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
