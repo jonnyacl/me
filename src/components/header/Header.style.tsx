@@ -47,7 +47,3 @@ export const ScrollingHeader = styled.div<{ isScrolling: boolean }>(
     `;
   }
 );
-
-export const BetText = styled.div`
-  font-size: 12px;
-`;

@@ -1,7 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Header } from '../components/header';
-import { Bets } from './Bets';
-import { Results } from './Results';
 
 export const Me = () => {
   return (
@@ -16,8 +14,6 @@ export const Me = () => {
             </>
           }
         />
-        <Route path='/bets' element={<Bets />} />
-        <Route path='/results' element={<Results />} />
       </Routes>
     </BrowserRouter>
   );
