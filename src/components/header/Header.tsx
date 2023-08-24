@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <ScrollingHeader isScrolling={isScrollingDown}>
-        <p>Hi I'm Jonny</p>
+        <p>Hi my name is Jonny</p>
         <a href='https://github.com/jonnyacl' rel='noreferrer' target='_blank'>
           <img
             src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'

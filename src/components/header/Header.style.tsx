@@ -4,6 +4,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   background-color: white;
+  text-align: center;
   a {
     img {
       width: 40px;
@@ -13,6 +14,16 @@ export const StyledHeader = styled.header`
 
     img:hover {
       transform: scale(1.3);
+    }
+  }
+  span {
+    font-size: 30px;
+    padding: 10px;
+    transition: all 0.17s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.3);
+      font-size: 50px;
     }
   }
 `;
@@ -36,3 +47,7 @@ export const ScrollingHeader = styled.div<{ isScrolling: boolean }>(
     `;
   }
 );
+
+export const BetText = styled.div`
+  font-size: 12px;
+`;
