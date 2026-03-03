@@ -22,13 +22,9 @@ body,
   height: 100%;
   margin: 0;
   position: relative;
-  font-family: 'SFMono-Medium';
-}
-#heading {
-  text-align: center;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'SFMono-Medium', monospace;
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
